@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon --exec babel-node ./api/index.js",
     "lint": "eslint **/*.js",
     "lint:fix": "prettier-eslint **/*.js --write"
   },
