@@ -3,12 +3,11 @@ import Car from './car.js';
 import Flag from './flag.js';
 import Order from './order.js';
 
-
 export default {
   User,
   Car,
   Flag,
-  Order,
+  Order
 };
 
 console.log('Executing Model: index.js ...');

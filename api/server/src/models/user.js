@@ -1,7 +1,6 @@
-
 class User {
   constructor() {
-    this.user = [
+    this.users = [
       {
         id: '001',
         email: 'mhdsemps@gmail.com',
@@ -10,7 +9,8 @@ class User {
         password: 'password',
         address: 'kigali,Rwanda',
         is_admin: true
-      },  {
+      },
+      {
         id: '002',
         email: 'mhdsemps@gmail.com',
         first_name: 'mummad',
@@ -22,9 +22,15 @@ class User {
     ];
   }
 
+  checkUser(email) {
+    const knownUser = this.users.find(user => user.email === email);
+    return knownUser;
+  }
+
+  addUser(user) {
+    this.users.push(user);
+  }
 }
-
-
 module.exports = {
   User
 };

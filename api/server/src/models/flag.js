@@ -1,11 +1,12 @@
-const Flag = [];
-// id : Integer,
-// car_id : Integer,
-// created_on : Date,
-// reason : String, // [pricing, weird demands, etc]
-// description : String,
+class Flag {
+  constructor() {
+    this.flags = [];
+  }
 
-
+  addFlag(flag) {
+    this.flags.push(flag);
+  }
+}
 
 module.exports = {
   Flag
