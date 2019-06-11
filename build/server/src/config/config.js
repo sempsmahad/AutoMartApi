@@ -1,2 +1,2 @@
-
-// # sourceMappingURL=config.js.map
+"use strict";
+//# sourceMappingURL=config.js.map

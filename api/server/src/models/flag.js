@@ -8,6 +8,4 @@ class Flag {
   }
 }
 
-module.exports = {
-  Flag
-};
+export default Flag;

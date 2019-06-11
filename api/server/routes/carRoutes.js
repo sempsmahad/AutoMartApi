@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/cars', CarController.getAllCars);
 router.get('/cars/:min_price/:max_price', CarController.getAllRangeCars);
-router.get('/cars', CarController.getAllAdminCars);
+router.get('/cars/admin', CarController.getAllAdminCars);
 router.post('/cars', CarController.addCar);
 router.get('/cars/state=value', CarController.getAllStateCars);
 router.get('/cars/body_type=value', CarController.getAllBodyTypeCars);

@@ -28,9 +28,10 @@ class User {
   }
 
   addUser(user) {
+    console.log(user);
     this.users.push(user);
+    return this.users;
   }
 }
-module.exports = {
-  User
-};
+
+export default User;

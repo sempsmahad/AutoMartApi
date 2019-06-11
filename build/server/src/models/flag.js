@@ -1,31 +1,33 @@
+"use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-const _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 
-const _classCallCheck2 = _interopRequireDefault(require('@babel/runtime/helpers/classCallCheck'));
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-const _createClass2 = _interopRequireDefault(require('@babel/runtime/helpers/createClass'));
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-const Flag =
-  /* #__PURE__ */
-  (function () {
-    function Flag() {
-      (0, _classCallCheck2.default)(this, Flag);
-      this.flags = [];
+var Flag =
+/*#__PURE__*/
+function () {
+  function Flag() {
+    (0, _classCallCheck2["default"])(this, Flag);
+    this.flags = [];
+  }
+
+  (0, _createClass2["default"])(Flag, [{
+    key: "addFlag",
+    value: function addFlag(flag) {
+      this.flags.push(flag);
     }
+  }]);
+  return Flag;
+}();
 
-    (0, _createClass2.default)(Flag, [
-      {
-        key: 'addFlag',
-        value: function addFlag(flag) {
-          this.flags.push(flag);
-        }
-      }
-    ]);
-    return Flag;
-  }());
-
-module.exports = {
-  Flag
-};
-// # sourceMappingURL=flag.js.map
+var _default = Flag;
+exports["default"] = _default;
+//# sourceMappingURL=flag.js.map

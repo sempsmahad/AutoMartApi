@@ -2,11 +2,12 @@ import User from '../src/models/user';
 import Util from '../utils/Utils';
 
 const util = new Util();
+const UserModel = new User();
 
 class userController {
   static async checkUser(req, res) {
     try {
-      const user = await User.checkUser(req.body.email);
+      const user = await UserModel.checkUser(req.body.email);
       if (user) {
         util.setSuccess(200, 'user exists', user);
       } else {
@@ -31,8 +32,11 @@ class userController {
       return util.send(res);
     }
     const newUser = req.body;
+
     try {
-      const createdUser = await User.addUser(newUser);
+      // console.log(newUser);
+      const createdUser = await UserModel.addUser(newUser);
+      console.log(createdUser);
       util.setSuccess(201, 'successfully created new account', createdUser);
       return util.send(res);
     } catch (error) {

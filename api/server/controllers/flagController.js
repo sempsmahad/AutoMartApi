@@ -2,6 +2,7 @@ import Flag from '../src/models/flag';
 import Util from '../utils/Utils';
 
 const util = new Util();
+const flagModel = new Flag();
 
 class flagController {
   static async addFlag(req, res) {
@@ -11,7 +12,7 @@ class flagController {
     }
     const newFlag = req.body;
     try {
-      const createdFlag = await Flag.addFlag(newFlag);
+      const createdFlag = await flagModel.addFlag(newFlag);
       util.setSuccess(201, 'successfully reported', createdFlag);
       return util.send(res);
     } catch (error) {

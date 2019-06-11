@@ -31,8 +31,7 @@
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.4.5",
     "babel-loader": "^8.0.6",
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
+
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -45,6 +44,8 @@
     "prettier-eslint-cli": "^4.7.1"
   },
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "core-util-is": "^1.0.2",

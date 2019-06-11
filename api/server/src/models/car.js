@@ -1,6 +1,6 @@
 class Car {
   constructor() {
-    const cars = [];
+    this.cars = [];
   }
 
   getAllCars() {
@@ -22,6 +22,7 @@ class Car {
 
   addCar(car) {
     this.cars.push(car);
+    return car;
   }
 
   getAllStateCars(state) {
@@ -53,6 +54,4 @@ class Car {
     return temp;
   }
 }
-module.exports = {
-  Car
-};
+export default Car;

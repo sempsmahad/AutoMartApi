@@ -2,11 +2,12 @@ import Car from '../src/models/car';
 import Util from '../utils/Utils';
 
 const util = new Util();
+const carModel = new Car();
 
 class CarController {
   static async getAllCars(req, res) {
     try {
-      const allCars = await Car.getAllCars();
+      const allCars = await carModel.getAllCars();
       if (allCars.length > 0) {
         util.setSuccess(200, 'Cars retrieved', allCars);
       } else {
@@ -21,7 +22,7 @@ class CarController {
 
   static async getAllStateCars(req, res) {
     try {
-      const allStateCars = await Car.getAllStateCars();
+      const allStateCars = await carModel.getAllStateCars();
       if (allStateCars.length > 0) {
         util.setSuccess(200, 'Cars retrieved', allStateCars);
       } else {
@@ -38,7 +39,7 @@ class CarController {
     try {
       const maxPrice = req.params.max_price;
       const minPrice = req.params.min_price;
-      const allCarsInRange = await Car.getAllRangeCars(maxPrice, minPrice);
+      const allCarsInRange = await carModel.getAllRangeCars(maxPrice, minPrice);
       if (allCarsInRange.length > 0) {
         util.setSuccess(200, 'Cars retrieved', allCarsInRange);
       } else {
@@ -53,7 +54,7 @@ class CarController {
 
   static async getAllAdminCars(req, res) {
     try {
-      const allAdminCars = await Car.getAllAdminCars();
+      const allAdminCars = await carModel.getAllAdminCars();
       if (allAdminCars.length > 0) {
         util.setSuccess(200, 'Cars retrieved', allAdminCars);
       } else {
@@ -68,7 +69,7 @@ class CarController {
 
   static async getAllBodyTypeCars(req, res) {
     try {
-      const allCars = await Car.getAllBodyTypeCars();
+      const allCars = await carModel.getAllBodyTypeCars();
       if (allCars.length > 0) {
         util.setSuccess(200, 'Cars retrieved', allCars);
       } else {
@@ -82,13 +83,13 @@ class CarController {
   }
 
   static async addCar(req, res) {
-    if (!req.body.title || !req.body.price || !req.body.description) {
+    if (!req.body.owner || !req.body.price || !req.body.model) {
       util.setError(400, 'Please provide complete details');
       return util.send(res);
     }
     const newCar = req.body;
     try {
-      const createdCar = await Car.addCar(newCar);
+      const createdCar = await carModel.addCar(newCar);
       util.setSuccess(201, 'Car Added!', createdCar);
       return util.send(res);
     } catch (error) {
@@ -104,7 +105,7 @@ class CarController {
       return util.send(res);
     }
     try {
-      const updatedCar = await Car.markAsSold(id);
+      const updatedCar = await carModel.markAsSold(id);
       if (!updatedCar) {
         util.setError(401, `Cannot find car with the id: ${id}`);
       } else {
@@ -124,7 +125,7 @@ class CarController {
       return util.send(res);
     }
     try {
-      const updatedCar = await Car.updatePrice(id, price);
+      const updatedCar = await carModel.updatePrice(id, price);
       if (!updatedCar) {
         util.setError(401, `Cannot find car with the id: ${id}`);
       } else {
@@ -145,7 +146,7 @@ class CarController {
       return util.send(res);
     }
     try {
-      const updateBook = await Car.updateBook(id, alteredBook);
+      const updateBook = await carModel.updateBook(id, alteredBook);
       if (!updateBook) {
         util.setError(404, `Cannot find book with the id: ${id}`);
       } else {
@@ -165,7 +166,7 @@ class CarController {
       return util.send(res);
     }
     try {
-      const theCar = await Car.getACar(id);
+      const theCar = await carModel.getACar(id);
       if (!theCar) {
         util.setError(400, `Cannot find car with the id ${id}`);
       } else {
@@ -187,7 +188,7 @@ class CarController {
     }
 
     try {
-      const deletedCar = await Car.deleteCar(id);
+      const deletedCar = await carModel.deleteCar(id);
 
       if (deletedCar) {
         util.setSuccess(200, 'Car deleted');
